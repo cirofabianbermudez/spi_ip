@@ -41,7 +41,7 @@ module tb;
   
   initial begin
     $timeformat(-9, 0, " ns", 10);
-    //uvm_config_db#(virtual spi_uvc_if)::set(null, "uvm_test_top.m_env.m_spi_agent", "vif", spi_vif);
+    uvm_config_db#(virtual spi_uvc_if)::set(null, "uvm_test_top.m_env.m_spi_agent", "vif", spi_vif);
     run_test();
   end
 
