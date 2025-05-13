@@ -1,11 +1,11 @@
 ##=============================================================================
 ## [Filename]       Makefile.xilinx
 ## [Project]        -
-## [Author]         Ciro Bermudez - cirofabian.bermudezmarquez@ba.infn.it
+## [Author]         Ciro Bermudez - cirofabian.bermudez@gmail.com
 ## [Language]       GNU Makefile
 ## [Created]        Jan 2025
 ## [Modified]       -
-## [Description]    gpio_uvc Makefile for testing the UVC
+## [Description]    - 
 ## [Notes]          -
 ## [Status]         stable
 ## [Revisions]      -
@@ -18,7 +18,7 @@ CUR_DATE   := $(shell date +%Y-%m-%d_%H-%M-%S)
 
 # Directories
 GIT_DIR     := $(shell git rev-parse --show-toplevel)
-UVM_DIR     := $(GIT_DIR)
+UVM_DIR     := $(GIT_DIR)/verification/uvm
 ROOT_DIR    := $(CURDIR)
 RUN_DIR     := $(ROOT_DIR)/sim
 LOGS_DIR    := $(ROOT_DIR)/logs
@@ -27,7 +27,7 @@ COV_DIR     := $(ROOT_DIR)/coverage
 SCRIPTS_DIR := $(UVM_DIR)/scripts
 TCL_DIR     := $(SCRIPTS_DIR)/vivado
 VERDI_DIR   := $(SCRIPTS_DIR)/verdi
-RTL_DIR     := $(UVM_DIR)/rtl
+RTL_DIR     := $(GIT_DIR)/rtl
 DPI_DIR     := $(UVM_DIR)/dpi
 
 # UVM configurations
@@ -60,13 +60,13 @@ endif
 # ==============================  TOOLS SETUP  ================================
 
 # Files
-RTL_FILES = $(RTL_DIR)/adder.sv
+RTL_FILES = $(RTL_DIR)/spi_ip.sv
 SVE = -f $(UVM_DIR)/sve.f
 VERDI_FILE = $(VERDI_DIR)/verdi.tcl
 DPI_FILE = $(DPI_DIR)/external.o
 
 # UVCs
-UVCS = -f $(GIT_DIR)/gpio_uvc.f
+UVCS =
 
 # Vivado XVLOG/XELAB/XSIM options
 FILES = $(UVCS) $(RTL_FILES) $(SVE) 
