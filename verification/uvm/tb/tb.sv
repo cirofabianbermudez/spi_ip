@@ -20,23 +20,23 @@ module tb;
   end
   
   // Interface
-  //spi_uvc_if spi_vif  (clk_i, rst_i);
+  spi_uvc_if spi_vif  (clk_i, rst_i);
 
   // DUT Instantiation
   spi_ip dut (
-    .clk_i            (),
-    .rst_i            (),
-    .din_i            (),
-    .dvsr_i           (),
-    .start_i          (),
-    .cpol_i           (),
-    .cpha_i           (),
-    .dout_o           (),
-    .spi_done_tick_o  (),
-    .ready_o          (),
-    .sclk_o           (),
-    .miso_i           (),
-    .mosi_o           ()
+    .clk_i            (spi_vif.clk_i),
+    .rst_i            (spi_vif.rst_i),
+    .din_i            (spi_vif.din_i),
+    .dvsr_i           ('d50),
+    .start_i          (spi_vif.start_i),
+    .cpol_i           (1'b0),
+    .cpha_i           (1'b0),
+    .dout_o           (spi_vif.dout_o),
+    .spi_done_tick_o  (spi_vif.spi_done_tick_o),
+    .ready_o          (spi_vif.ready_o),
+    .sclk_o           (spi_vif.sclk_o),
+    .miso_i           (1'b0),
+    .mosi_o           (spi_vif.mosi_o)
   );
   
   initial begin

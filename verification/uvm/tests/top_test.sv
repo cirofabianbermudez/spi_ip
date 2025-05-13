@@ -5,7 +5,7 @@ class top_test extends uvm_test;
 
   `uvm_component_utils(top_test)
   
-  //top_env        m_env;
+  top_env        m_env;
   
   extern function new(string name, uvm_component parent);
 
@@ -22,7 +22,7 @@ endfunction : new
 
 
 function void top_test::build_phase(uvm_phase phase);
-  //m_env = top_env::type_id::create("m_env", this);
+  m_env = top_env::type_id::create("m_env", this);
 endfunction : build_phase
 
 
