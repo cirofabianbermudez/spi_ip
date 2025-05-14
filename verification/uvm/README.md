@@ -8,6 +8,6 @@ export UVM_WORK="$GIT_ROOT/work/uvm"
 mkdir -p work/uvm && cd work/uvm
 ln -sf $GIT_ROOT/verification/uvm/scripts/makefiles/Makefile.xilinx Makefile
 ln -sf $GIT_ROOT/verification/uvm/scripts/setup/setup_vivado_eda.sh
-source setup_synopsys_eda.tcsh
+source setup_synopsys_eda.sh
 make
 ```
