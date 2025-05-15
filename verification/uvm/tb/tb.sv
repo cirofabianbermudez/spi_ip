@@ -20,12 +20,12 @@ module tb;
   end
   
   // Interface
-  spi_uvc_if spi_vif  (clk_i, rst_i);
+  spi_uvc_if spi_vif (clk_i);
 
   // DUT Instantiation
   spi_ip dut (
     .clk_i            (spi_vif.clk_i),
-    .rst_i            (spi_vif.rst_i),
+    .rst_i            (rst_i),
     .din_i            (spi_vif.din_i),
     .dvsr_i           ('d50),
     .start_i          (spi_vif.start_i),
@@ -40,7 +40,7 @@ module tb;
   );
   
   initial begin
-    $timeformat(-9, 0, " ns", 10);
+    $timeformat(-12, 0, " ps", 10);
     uvm_config_db#(virtual spi_uvc_if)::set(null, "uvm_test_top.m_env.m_spi_agent", "vif", spi_vif);
     run_test();
   end
