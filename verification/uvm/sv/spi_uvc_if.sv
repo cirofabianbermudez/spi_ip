@@ -24,7 +24,7 @@ interface spi_uvc_if (
   end
   
   clocking cb_drv @(posedge clk_i);
-    default output #5ns;
+    default output #2ns;
     output  din_i;
     output  start_i;
     output  miso_i;

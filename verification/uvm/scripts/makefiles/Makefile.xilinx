@@ -80,8 +80,8 @@ XVLOG_FLAGS = -sv $(XVLOG_DEFINES) $(FILES) \
 XELAB_FLAGS = tb -debug all \
 							-s work.tb \
 							-mt 10 \
-							-timescale 1ns/100ps \
 							-L work -L xil_defaultlib -L uvm \
+							-L xpm -L unisims_ver -L unimacro_ver -L secureip \
 							-log $(LOGS_DIR)/elaborate.log
 
 # -v 2    to check for C errors

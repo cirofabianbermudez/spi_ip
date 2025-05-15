@@ -24,7 +24,7 @@ task top_test_vseq::spi_rand_seq();
   seq = spi_uvc_sequence_base::type_id::create("seq");
 
   if (!(seq.randomize() with {
-        m_trans.m_data inside {[20:30]};
+        m_trans.m_data inside {[0:255]};
         m_trans.m_cmd inside {SPI_UVC_READ, SPI_UVC_WRITE};
       }))
     `uvm_fatal("RAND_ERROR", "Randomization error!")
@@ -37,7 +37,7 @@ task top_test_vseq::body();
   // Initial delay
   #2505ns;
 
-  repeat (10) begin
+  repeat (1000) begin
     spi_rand_seq();
     #500ns;
   end

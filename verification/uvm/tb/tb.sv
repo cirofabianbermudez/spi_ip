@@ -11,7 +11,7 @@ module tb;
   always #(CLK_PERIOD / 2) clk_i = ~clk_i;
   
   // Reset signal
-  logic rst_i = 0;
+  logic rst_i = 1;
   initial begin
     repeat(2) @(posedge clk_i);
     rst_i = 1;
