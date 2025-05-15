@@ -35,7 +35,7 @@ module tb;
     .spi_done_tick_o  (spi_vif.spi_done_tick_o),
     .ready_o          (spi_vif.ready_o),
     .sclk_o           (spi_vif.sclk_o),
-    .miso_i           (1'b0),
+    .miso_i           (spi_vif.miso_i),
     .mosi_o           (spi_vif.mosi_o)
   );
   

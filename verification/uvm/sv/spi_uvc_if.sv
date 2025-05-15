@@ -13,13 +13,21 @@ interface spi_uvc_if (
   logic        spi_done_tick_o;
   logic        ready_o;
   logic        sclk_o;
-  //logic        miso_i;
+  logic        miso_i;
   logic        mosi_o;
+  
+  // Default values
+  initial begin
+    din_i   = 'd0;
+    start_i = 'd0;
+    miso_i  = 'd0;
+  end
   
   clocking cb_drv @(posedge clk_i);
     default output #5ns;
     output  din_i;
     output  start_i;
+    output  miso_i;
   endclocking : cb_drv
 
 
@@ -30,6 +38,7 @@ interface spi_uvc_if (
     input ready_o;
     input sclk_o;
     input mosi_o;
+    input miso_i;
   endclocking : cb_mon
 
 endinterface : spi_uvc_if

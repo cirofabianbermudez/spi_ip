@@ -16,5 +16,4 @@ function spi_uvc_config::new(string name = "");
   super.new(name);
 endfunction : new
 
-
 `endif // SPI_UVC_CONFIG_SV

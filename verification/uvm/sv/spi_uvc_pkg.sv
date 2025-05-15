@@ -14,6 +14,9 @@ package spi_uvc_pkg;
   `include "spi_uvc_monitor.sv"
   `include "spi_uvc_agent.sv"
 
+  // Sequence library
+  `include "spi_uvc_sequence_base.sv"
+
 endpackage : spi_uvc_pkg
 
 `endif // SPI_UVC_PKG_SV
