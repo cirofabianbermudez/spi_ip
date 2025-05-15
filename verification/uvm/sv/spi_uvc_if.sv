@@ -5,6 +5,8 @@ interface spi_uvc_if (
     input logic clk_i
 );
 
+  import spi_uvc_pkg::*;
+
   // SPI signals
   logic [7:0]  din_i;
   logic        start_i;
