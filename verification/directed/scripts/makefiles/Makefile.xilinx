@@ -5,7 +5,7 @@
 ## [Language]       GNU Makefile
 ## [Created]        Nov 2024
 ## [Modified]       -
-## [Description]    Makefile for Vivado batch workflow
+## [Description]    Makefile for Vivado batch workflow for directed simulation
 ## [Notes]          -
 ## [Status]         stable
 ## [Revisions]      -
@@ -19,20 +19,20 @@ CUR_DATE   := $(shell date +%Y-%m-%d_%H-%M-%S)
 # Directories
 GIT_DIR     := $(shell git rev-parse --show-toplevel)
 ROOT_DIR    := $(CURDIR)
-WORK_DIR    := $(ROOT_DIR)/work
+WORK_DIR    := $(ROOT_DIR)
 RUN_DIR     := $(WORK_DIR)/sim
 LOGS_DIR    := $(WORK_DIR)/logs
-SCRIPTS_DIR := $(GIT_DIR)/scripts
-TCL_DIR     := $(SCRIPTS_DIR)
-RTL_DIR     := $(GIT_DIR)/hw/rtl
-TB_DIR      := $(GIT_DIR)/hw/tb
+SCRIPTS_DIR := $(GIT_DIR)/verification/directed/scripts
+TCL_DIR     := $(SCRIPTS_DIR)/vivado
+RTL_DIR     := $(GIT_DIR)/rtl
+TB_DIR      := $(GIT_DIR)/verification/directed/tb
 
 # Files
 HDL_FILE ?=
 
 # Verilog/SystemVerilog
-RTL_VLOG_SOURCES := $(RTL_DIR)/debouncer.sv
-SIM_VLOG_SOURCES := $(TB_DIR)/test.sv $(TB_DIR)/debouncer_if.sv $(TB_DIR)/tb.sv
+RTL_VLOG_SOURCES := $(RTL_DIR)/spi_ip.sv
+SIM_VLOG_SOURCES := $(TB_DIR)/spi_if.sv $(TB_DIR)/test.sv $(TB_DIR)/tb.sv
 VLOG_DEFINES     :=
 
 # VHDL
@@ -44,7 +44,7 @@ VLOG_SOURCES := $(RTL_VLOG_SOURCES) $(SIM_VLOG_SOURCES)
 VHDL_SOURCES := $(RTL_VHDL_SOURCES) $(SIM_VHDL_SOURCES)
 
 # Simulation Variables
-RTL_TOP_MODULE := debouncer
+RTL_TOP_MODULE := spi_ip
 SIM_TOP_MODULE := tb
 
 # ================================  CONTROL  ==================================
