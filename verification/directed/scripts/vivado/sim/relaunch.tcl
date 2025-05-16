@@ -11,13 +11,19 @@
 ## [Revisions]      -
 ##=============================================================================
 
+# ============================= GLOBAL VARIABLES ============================= #
+
+set scriptsDir [file normalize [file dirname [info script]]]
+
+# =============================== LOAD SCRIPTS =============================== #
+#
 # Load custom Tcl procedures for compilation/elaboration
 if { [info procs compile] eq "" } {
-   source -notrace -quiet [pwd]/../../scripts/sim/compile.tcl
+   source -notrace -quiet $scriptsDir/compile.tcl
 }
 
 if { [info procs elaborate] eq "" } {
-   source -notrace -quiet [pwd]/../../scripts/sim/elaborate.tcl
+   source -notrace -quiet $scriptsDir/elaborate.tcl
 }
 
 # ============================ RELAUNCH PROCEDURE ============================ #

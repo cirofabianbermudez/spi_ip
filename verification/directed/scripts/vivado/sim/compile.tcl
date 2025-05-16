@@ -142,6 +142,8 @@ proc compile {} {
 
         if { [file extension ${src}]  == ".sv"} {
           puts "\[INFO\]: Compiling SystemVerilog source file ${src}"
+          set checkhere [file normalize [pwd]/../..]
+          puts "$checkhere"
 
           # Launch xvlog executable from Tcl for SystemVerilog
           catch {eval exec xvlog -sv ${vlogDefines} -relax -i [file normalize [pwd]/../..] -work work ${src} -nolog | tee -a ${logFile}}

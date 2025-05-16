@@ -11,6 +11,10 @@
 ## [Revisions]      -
 ##=============================================================================
 
+# ============================= GLOBAL VARIABLES ============================= #
+
+set scriptsDir [file normalize [file dirname [info script]]]
+
 # ============================ SIMULATE PROCEDURE ============================ #
 
 proc simulate { {mode "batch"} } {
@@ -77,6 +81,8 @@ proc simulate { {mode "batch"} } {
 
   puts "\[INFO\]:"
   puts "        ====== Simulating the design ======"
+  
+  set runScript $scriptsDir/run.tcl
 
   if { ${mode} == "gui" } {
     puts "\[INFO\]: Running simulation in GUI mode"
@@ -84,7 +90,7 @@ proc simulate { {mode "batch"} } {
     exec xsim ${xelabTop} \
     -gui \
     -wdb [pwd]/wdb/${xelabTop}.wdb \
-    -tclbatch [pwd]/../../scripts/sim/run.tcl \
+    -tclbatch $runScript \
     -stats -onerror stop \
     -log ${logFile} &
 
@@ -93,7 +99,7 @@ proc simulate { {mode "batch"} } {
 
     exec xsim ${xelabTop} \
     -wdb [pwd]/wdb/${xelabTop}.wdb \
-    -tclbatch [pwd]/../../scripts/sim/run.tcl \
+    -tclbatch $runScript \
     -stats -onerror stop \
     -log ${logFile} >@stdout 2>@stdout
 
@@ -102,7 +108,7 @@ proc simulate { {mode "batch"} } {
 
     exec xsim ${xelabTop} \
     -wdb [pwd]/wdb/${xelabTop}.wdb \
-    -tclbatch [pwd]/../../scripts/sim/run.tcl \
+    -tclbatch $runScript \
     -stats -onerror stop -onfinish quit \
     -log ${logFile} >@stdout 2>@stdout
 
