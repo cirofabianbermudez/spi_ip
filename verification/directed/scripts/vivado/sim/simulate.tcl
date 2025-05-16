@@ -18,6 +18,9 @@ set scriptsDir [file normalize [file dirname [info script]]]
 # ============================ SIMULATE PROCEDURE ============================ #
 
 proc simulate { {mode "batch"} } {
+  
+  # Get global variables
+  global scriptsDir
 
   # Profiling
   set tclStart [clock seconds]

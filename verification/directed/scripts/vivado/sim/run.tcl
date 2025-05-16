@@ -16,8 +16,6 @@ set tclStart [clock seconds]
 
 # Scripts directory
 set scriptsDir [file normalize [file dirname [info script]]]
-puts "This script is located in: $scriptsDir"
-
 
 # Load into XSim Tcl environment the custom 'relaunch' procedure
 if { [info procs relaunch] eq "" } {

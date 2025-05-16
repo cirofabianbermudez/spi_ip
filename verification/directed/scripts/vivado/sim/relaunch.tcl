@@ -66,7 +66,7 @@ proc relaunch {} {
   if { [compile] } {
 
     puts "\[ERROR\]: Compilation failed!"
-    exec grep ERROR [pwd]/../../work/logs/compile.log
+    #exec grep ERROR [pwd]/../../work/logs/compile.log
 
   } else {
 
@@ -76,7 +76,7 @@ proc relaunch {} {
     if { [elaborate] } {
 
       puts "\[ERROR\]: Elaboration failed! Exiting..."
-      exec grep ERROR [pwd]/../../work/logs/elaborate.log
+      #exec grep ERROR [pwd]/../../work/logs/elaborate.log
 
     } else {
 
