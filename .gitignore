@@ -3,6 +3,8 @@ work/
 
 # Files
 Makefile
+*.pdf
+
+# C++
 *.exe
 *.o
-*.pdf
