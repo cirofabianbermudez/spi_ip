@@ -39,6 +39,14 @@ module tb;
     .mosi_o           (spi_vif.mosi_o)
   );
   
+  // SPI Slave module
+  spi_slave service_slave (
+    .start_i (spi_vif.start_i),
+    .mosi_i  (spi_vif.mosi_o),
+    .sclk_i  (spi_vif.sclk_o),
+    .miso_o  (spi_vif.miso_i)
+  );
+  
   initial begin
     $timeformat(-12, 0, " ps", 10);
     uvm_config_db#(virtual spi_uvc_if)::set(null, "uvm_test_top.m_env.m_spi_agent", "vif", spi_vif);

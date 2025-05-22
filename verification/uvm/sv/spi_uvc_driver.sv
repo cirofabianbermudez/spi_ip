@@ -55,7 +55,7 @@ endtask : cmd_write
 
 task spi_uvc_driver::cmd_read();
   @(vif.cb_drv);
-  vif.cb_drv.din_i   <= 'd0;
+  vif.cb_drv.din_i   <= req.m_data;
   vif.cb_drv.start_i <= 1'b1;
   @(vif.cb_drv);
   vif.cb_drv.start_i <= 1'b0;
