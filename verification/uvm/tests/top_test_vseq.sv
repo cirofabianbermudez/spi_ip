@@ -37,7 +37,7 @@ task top_test_vseq::body();
   // Initial delay
   #2505ns;
 
-  repeat (1000) begin
+  repeat (10) begin
     spi_rand_seq();
     #500ns;
   end

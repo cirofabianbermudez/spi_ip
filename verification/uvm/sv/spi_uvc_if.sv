@@ -18,7 +18,7 @@ interface spi_uvc_if (
   logic        mosi_o;
   
   clocking cb_drv @(posedge clk_i);
-    default output #5ns;
+    default input #1ns output #5ns;
     output  din_i;
     output  start_i;
     output  miso_i;
@@ -26,7 +26,7 @@ interface spi_uvc_if (
 
 
   clocking cb_mon @(posedge clk_i);
-    default input #1ns;
+    default input #1ns output #5ns;
     input dout_o;
     input spi_done_tick_o;
     input ready_o;
