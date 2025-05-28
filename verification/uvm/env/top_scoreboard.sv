@@ -1,7 +1,6 @@
 `ifndef TOP_SCOREBOARD_SV
 `define TOP_SCOREBOARD_SV
 
-
 class top_scoreboard extends uvm_scoreboard;
 
   `uvm_component_utils(top_scoreboard)
