@@ -58,6 +58,7 @@ task spi_uvc_monitor::do_mon();
       data_miso[idx] = vif.miso_i;
     end
     
+    m_trans.m_data      = vif.din_i;
     m_trans.m_data_mosi = data_mosi;
     m_trans.m_data_miso = data_miso;
 

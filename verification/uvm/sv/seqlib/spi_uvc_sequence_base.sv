@@ -21,7 +21,6 @@ function spi_uvc_sequence_base::new(string name = "");
 endfunction : new
 
 
-
 task spi_uvc_sequence_base::body();
   start_item(m_trans);
   finish_item(m_trans);
